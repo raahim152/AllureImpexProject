@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Allure Impex | Where You Find Solutions</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#fffdf4',
+                100: '#fff9e1',
+                200: '#fff0b3',
+                300: '#ffe680',
+                400: '#ffd84d',
+                500: '#ffc61a',
+                600: '#e6ac00',
+                700: '#b38600',
+                800: '#806000',
+                900: '#4d3a00',
+              },
+              secondary: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                300: '#cbd5e1',
+                400: '#94a3b8',
+                500: '#64748b',
+                600: '#475569',
+                700: '#334155',
+                800: '#1e293b',
+                900: '#0f172a',
+              }
+            },
+            fontFamily: {
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'slide-up': 'slideUp 0.7s ease-out',
+              'float': 'float 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(30px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .gradient-bg {
+        background: linear-gradient(135deg, #ffc61a 0%, #ffd84d 50%, #ffe680 100%);
+      }
+      
+      .hero-gradient {
+        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+      }
+      
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      .nav-link {
+        position: relative;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #ffc61a;
+        transition: width 0.3s ease;
+      }
+      
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #ffc61a;
+        z-index: 10;
+      }
+      
+      .timeline-item::after {
+        content: '';
+        position: absolute;
+        left: -23px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: #e2e8f0;
+      }
+      
+      .timeline-item:last-child::after {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-gray-50 text-secondary-900 font-sans">
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm">
+      <div class="container flex h-20 items-center justify-between px-4 mx-auto max-w-7xl">
+        <div class="flex items-center space-x-3">
+          <a href="index.html" class="text-2xl font-bold text-primary-500 flex items-center">
+            <i class="fas fa-cubes mr-2"></i>
+            Allure Impex
+          </a>
+          <div class="hidden sm:block text-sm text-secondary-600 border-l border-secondary-200 pl-3">
+            Where You Find Solutions
+          </div>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-button" class="md:hidden text-secondary-600 hover:text-primary-500 transition-colors">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link font-medium text-secondary-700 hover:text-primary-500 transition-colors">Home</a>
+          <a href="about.html" class="nav-link font-medium text-primary-500 transition-colors">About</a>
+          <a href="product.html" class="nav-link font-medium text-secondary-700 hover:text-primary-500 transition-colors">Products</a>
+          <a href="index.html#contact" class="nav-link font-medium text-secondary-700 hover:text-primary-500 transition-colors">Contact</a>
+          <a href="index.html#contact" class="bg-primary-500 text-white hover:bg-primary-600 px-6 py-2 rounded-lg shadow transition-all font-medium">
+            Get Quote
+          </a>
+        </nav>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-secondary-200 py-4 px-4">
+        <div class="flex flex-col space-y-4">
+          <a href="index.html" class="font-medium text-secondary-700 hover:text-primary-500 transition-colors py-2">Home</a>
+          <a href="about.html" class="font-medium text-primary-500 transition-colors py-2">About</a>
+          <a href="product.html" class="font-medium text-secondary-700 hover:text-primary-500 transition-colors py-2">Products</a>
+          <a href="index.html#contact" class="font-medium text-secondary-700 hover:text-primary-500 transition-colors py-2">Contact</a>
+          <a href="index.html#contact" class="bg-primary-500 text-white hover:bg-primary-600 px-6 py-2 rounded-lg shadow transition-all font-medium text-center mt-2">
+            Get Quote
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="relative py-20 bg-gradient-to-r from-primary-500 to-primary-600 overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+      </div>
+      <div class="container mx-auto px-4 max-w-7xl relative z-10">
+        <div class="max-w-3xl">
+          <nav class="flex items-center space-x-2 text-sm text-white/80 mb-4">
+            <a href="index.html" class="hover:text-white transition-colors">Home</a>
+            <span><i class="fas fa-chevron-right text-xs"></i></span>
+            <span class="text-white">About Us</span>
+          </nav>
+          <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in">Our Story</h1>
+          <p class="text-xl text-white/90 max-w-2xl animate-fade-in" style="animation-delay: 0.2s">
+            For over 25 years, we've been connecting manufacturers and buyers with reliable, sustainable sourcing solutions worldwide.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+              Our Mission & <span class="text-primary-500">Vision</span>
+            </h2>
+            <p class="text-lg text-secondary-600 mb-6 leading-relaxed">
+              At Allure Impex, our mission is to bridge the gap between trusted manufacturers and buyers worldwide. 
+              We are committed to delivering high-quality products and sustainable sourcing solutions that drive 
+              business growth and create lasting partnerships.
+            </p>
+            <p class="text-lg text-secondary-600 mb-8 leading-relaxed">
+              Our vision is to become the most trusted global sourcing partner, recognized for our reliability, 
+              innovation, and commitment to excellence in every aspect of our operations.
+            </p>
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Our Purpose</h3>
+                <p class="text-secondary-600">To transform sourcing challenges into opportunities for growth.</p>
+              </div>
+            </div>
+          </div>
+          <div class="animate-fade-in" style="animation-delay: 0.3s">
+            <div class="relative rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                alt="Our team discussing strategy" 
+                class="w-full h-96 object-cover"
+              />
+              <div class="absolute inset-0 bg-primary-500/10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-secondary-50">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Our Core <span class="text-primary-500">Values</span>
+          </h2>
+          <p class="text-lg text-secondary-600">
+            These principles guide everything we do and form the foundation of our relationships with clients and partners.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-secondary-100">
+            <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl mb-6">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Integrity</h3>
+            <p class="text-secondary-600">
+              We conduct business with honesty, transparency, and ethical practices. Our word is our bond, and we build relationships based on trust.
+            </p>
+          </div>
+          
+          <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-secondary-100">
+            <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl mb-6">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Quality</h3>
+            <p class="text-secondary-600">
+              We never compromise on quality. From product selection to delivery, we maintain the highest standards to ensure client satisfaction.
+            </p>
+          </div>
+          
+          <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-secondary-100">
+            <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl mb-6">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Innovation</h3>
+            <p class="text-secondary-600">
+              We continuously seek innovative solutions to meet evolving market demands and help our clients stay ahead of the competition.
+            </p>
+          </div>
+          
+          <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-secondary-100">
+            <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl mb-6">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Partnership</h3>
+            <p class="text-secondary-600">
+              We view our clients as long-term partners. Their success is our success, and we work collaboratively to achieve mutual goals.
+            </p>
+          </div>
+          
+          <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-secondary-100">
+            <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl mb-6">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Sustainability</h3>
+            <p class="text-secondary-600">
+              We are committed to environmentally responsible practices and promoting sustainable solutions across our product portfolio.
+            </p>
+          </div>
+          
+          <div class="card-hover bg-white rounded-2xl p-8 shadow-md border border-secondary-100">
+            <div class="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 text-2xl mb-6">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-4">Excellence</h3>
+            <p class="text-secondary-600">
+              We strive for excellence in every aspect of our operations, from customer service to supply chain management.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Our <span class="text-primary-500">Journey</span>
+          </h2>
+          <p class="text-lg text-secondary-600">
+            From humble beginnings to becoming a trusted global sourcing partner, our journey has been marked by growth, innovation, and commitment.
+          </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto relative">
+          <!-- Timeline line -->
+          <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-secondary-200 transform -translate-x-1/2 hidden md:block"></div>
+          
+          <!-- Timeline items -->
+          <div class="space-y-12 relative">
+            <!-- Item 1 -->
+            <div class="flex flex-col md:flex-row items-start timeline-item">
+              <div class="md:w-1/3 md:pr-8 mb-4 md:mb-0 md:text-right">
+                <div class="bg-primary-100 text-primary-800 py-1 px-3 rounded-full text-sm font-medium inline-block">1998</div>
+                <h3 class="text-xl font-semibold mt-2">Foundation</h3>
+              </div>
+              <div class="md:w-2/3 bg-secondary-50 rounded-2xl p-6 shadow-sm border border-secondary-100">
+                <p class="text-secondary-600">
+                  Allure Impex was founded with a vision to connect manufacturers with global buyers. Started as a small trading company with just three employees.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="flex flex-col md:flex-row items-start timeline-item">
+              <div class="md:w-1/3 md:pr-8 mb-4 md:mb-0 md:text-right">
+                <div class="bg-primary-100 text-primary-800 py-1 px-3 rounded-full text-sm font-medium inline-block">2005</div>
+                <h3 class="text-xl font-semibold mt-2">Expansion</h3>
+              </div>
+              <div class="md:w-2/3 bg-secondary-50 rounded-2xl p-6 shadow-sm border border-secondary-100">
+                <p class="text-secondary-600">
+                  Expanded our product portfolio to include corrugated packaging and paper core products. Established partnerships with manufacturers across Asia.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="flex flex-col md:flex-row items-start timeline-item">
+              <div class="md:w-1/3 md:pr-8 mb-4 md:mb-0 md:text-right">
+                <div class="bg-primary-100 text-primary-800 py-1 px-3 rounded-full text-sm font-medium inline-block">2012</div>
+                <h3 class="text-xl font-semibold mt-2">Innovation</h3>
+              </div>
+              <div class="md:w-2/3 bg-secondary-50 rounded-2xl p-6 shadow-sm border border-secondary-100">
+                <p class="text-secondary-600">
+                  Introduced sustainable biomass solutions and expanded into flexible packaging. Implemented quality assurance systems across our supply chain.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="flex flex-col md:flex-row items-start timeline-item">
+              <div class="md:w-1/3 md:pr-8 mb-4 md:mb-0 md:text-right">
+                <div class="bg-primary-100 text-primary-800 py-1 px-3 rounded-full text-sm font-medium inline-block">2018</div>
+                <h3 class="text-xl font-semibold mt-2">Global Reach</h3>
+              </div>
+              <div class="md:w-2/3 bg-secondary-50 rounded-2xl p-6 shadow-sm border border-secondary-100">
+                <p class="text-secondary-600">
+                  Reached milestone of serving clients in over 10 countries. Expanded our team with industry experts and opened new regional offices.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Item 5 -->
+            <div class="flex flex-col md:flex-row items-start timeline-item">
+              <div class="md:w-1/3 md:pr-8 mb-4 md:mb-0 md:text-right">
+                <div class="bg-primary-100 text-primary-800 py-1 px-3 rounded-full text-sm font-medium inline-block">2023</div>
+                <h3 class="text-xl font-semibold mt-2">Digital Transformation</h3>
+              </div>
+              <div class="md:w-2/3 bg-secondary-50 rounded-2xl p-6 shadow-sm border border-secondary-100">
+                <p class="text-secondary-600">
+                  Implemented digital solutions for supply chain management and client communications. Launched our new website and customer portal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-gradient-to-br from-secondary-800 to-secondary-900 text-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Meet Our <span class="text-primary-400">Leadership</span>
+          </h2>
+          <p class="text-lg text-secondary-300">
+            Our experienced leadership team brings decades of industry knowledge and a shared commitment to excellence.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Team Member 1 -->
+          <div class="card-hover bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10">
+            <div class="p-6">
+              <div class="w-24 h-24 rounded-full bg-primary-500/20 mx-auto mb-6 flex items-center justify-center text-3xl text-primary-400">
+                <i class="fas fa-user-tie"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-center mb-2">Zain Chaudhry</h3>
+              <p class="text-primary-400 text-center mb-4">Founder & CEO</p>
+              <p class="text-secondary-300 text-center">
+                With over 25 years of experience in international trade, Zain founded Allure Impex with a vision to create reliable sourcing solutions.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Team Member 2 -->
+          <div class="card-hover bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10">
+            <div class="p-6">
+              <div class="w-24 h-24 rounded-full bg-primary-500/20 mx-auto mb-6 flex items-center justify-center text-3xl text-primary-400">
+                <i class="fas fa-user-cog"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-center mb-2">Sarah Ahmed</h3>
+              <p class="text-primary-400 text-center mb-4">Operations Director</p>
+              <p class="text-secondary-300 text-center">
+                Sarah oversees our supply chain and ensures seamless operations. She has 15+ years of experience in logistics and procurement.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Team Member 3 -->
+          <div class="card-hover bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10">
+            <div class="p-6">
+              <div class="w-24 h-24 rounded-full bg-primary-500/20 mx-auto mb-6 flex items-center justify-center text-3xl text-primary-400">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-center mb-2">Michael Roberts</h3>
+              <p class="text-primary-400 text-center mb-4">Business Development Manager</p>
+              <p class="text-secondary-300 text-center">
+                Michael drives our growth strategies and client relationships. He brings extensive market knowledge and a customer-first approach.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href="index.html#contact" class="bg-primary-500 text-white hover:bg-primary-600 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center justify-center font-medium">
+            Connect With Our Team <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+              Why Choose <span class="text-primary-500">Allure Impex</span>
+            </h2>
+            <p class="text-lg text-secondary-600 mb-8 leading-relaxed">
+              With decades of experience and a commitment to excellence, we stand out as your trusted sourcing partner.
+            </p>
+            
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mt-1 flex-shrink-0">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Global Network</h3>
+                  <p class="text-secondary-600">
+                    We have established relationships with manufacturers across multiple continents, giving you access to diverse markets and products.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mt-1 flex-shrink-0">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Quality Assurance</h3>
+                  <p class="text-secondary-600">
+                    Our rigorous quality control processes ensure that every product meets the highest standards before reaching our clients.
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mt-1 flex-shrink-0">
+                  <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-2">Competitive Pricing</h3>
+                  <p class="text-secondary-600">
+                    Our extensive network and efficient operations allow us to offer competitive pricing without compromising on quality.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animate-fade-in" style="animation-delay: 0.3s">
+            <div class="relative rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                alt="Our team collaborating" 
+                class="w-full h-96 object-cover"
+              />
+              <div class="absolute inset-0 bg-primary-500/10"></div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4 mt-8">
+              <div class="bg-primary-50 rounded-xl p-4 text-center">
+                <div class="text-2xl font-bold text-primary-600">25+</div>
+                <div class="text-sm text-secondary-600">Years Experience</div>
+              </div>
+              <div class="bg-primary-50 rounded-xl p-4 text-center">
+                <div class="text-2xl font-bold text-primary-600">50+</div>
+                <div class="text-sm text-secondary-600">Happy Clients</div>
+              </div>
+              <div class="bg-primary-50 rounded-xl p-4 text-center">
+                <div class="text-2xl font-bold text-primary-600">10+</div>
+                <div class="text-sm text-secondary-600">Countries Served</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
+      <div class="container mx-auto px-4 max-w-7xl text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Ready to Partner With Us?
+        </h2>
+        <p class="text-xl max-w-2xl mx-auto mb-8 opacity-90">
+          Let's discuss how we can help you find the perfect sourcing solutions for your business needs.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="index.html#contact" class="bg-white text-primary-600 hover:bg-secondary-100 text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center justify-center font-medium">
+            Contact Us Today <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a href="product.html" class="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center justify-center font-medium border border-white/30">
+            Explore Products <i class="fas fa-box-open ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-12">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <a href="index.html" class="text-2xl font-bold text-primary-400 flex items-center">
+                <i class="fas fa-cubes mr-2"></i>
+                Allure Impex
+              </a>
+            </div>
+            <p class="text-secondary-300 mb-6 max-w-md">
+              Connecting manufacturers and buyers with reliable, sustainable sourcing solutions worldwide. Your trusted partner for quality products and exceptional service.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-secondary-300 hover:text-primary-400 transition-colors">Home</a></li>
+              <li><a href="about.html" class="text-primary-400 transition-colors">About Us</a></li>
+              <li><a href="product.html" class="text-secondary-300 hover:text-primary-400 transition-colors">Products</a></li>
+              <li><a href="index.html#contact" class="text-secondary-300 hover:text-primary-400 transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Our Products</h3>
+            <ul class="space-y-2">
+              <li><a href="corr.html" class="text-secondary-300 hover:text-primary-400 transition-colors">Corrugated Packaging</a></li>
+              <li><a href="flex.html" class="text-secondary-300 hover:text-primary-400 transition-colors">Flexible Packaging</a></li>
+              <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition-colors">Paper Core</a></li>
+              <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition-colors">Biomass Solutions</a></li>
+              <li><a href="#" class="text-secondary-300 hover:text-primary-400 transition-colors">Plastics</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-secondary-800 mt-8 pt-8 text-center text-secondary-400 text-sm">
+          <p>© 2025 Allure Impex. All rights reserved. | Where You Find Solutions</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-colors z-40 hidden">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </body>
+</html>
