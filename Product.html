@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Products - Allure Impex</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#fffdf4',
+                100: '#fff9e1',
+                200: '#fff0b3',
+                300: '#ffe680',
+                400: '#ffd84d',
+                500: '#ffc61a',
+                600: '#e6ac00',
+                700: '#b38600',
+                800: '#806000',
+                900: '#4d3a00',
+              },
+              secondary: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                300: '#cbd5e1',
+                400: '#94a3b8',
+                500: '#64748b',
+                600: '#475569',
+                700: '#334155',
+                800: '#1e293b',
+                900: '#0f172a',
+              }
+            },
+            fontFamily: {
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'slide-up': 'slideUp 0.7s ease-out',
+              'float': 'float 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(30px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .gradient-bg {
+        background: linear-gradient(135deg, #ffc61a 0%, #ffd84d 50%, #ffe680 100%);
+      }
+      
+      .hero-gradient {
+        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+      }
+      
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      .nav-link {
+        position: relative;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #ffc61a;
+        transition: width 0.3s ease;
+      }
+      
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      
+      .product-image {
+        transition: transform 0.5s ease;
+      }
+      
+      .product-card:hover .product-image {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-gray-50 text-secondary-900 font-sans">
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm">
+      <div class="container flex h-20 items-center justify-between px-4 mx-auto max-w-7xl">
+        <div class="flex items-center space-x-3">
+          <a href="index.html" class="text-2xl font-bold text-primary-500 flex items-center">
+            <i class="fas fa-cubes mr-2"></i>
+            Allure Impex
+          </a>
+          <div class="hidden sm:block text-sm text-secondary-600 border-l border-secondary-200 pl-3">
+            Where You Find Solutions
+          </div>
+        </div>
+        
+        <button id="mobile-menu-button" class="md:hidden text-secondary-600 hover:text-primary-500 transition-colors">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link font-medium text-secondary-700 hover:text-primary-500 transition-colors">Home</a>
+          <a href="About.html" class="nav-link font-medium text-secondary-700 hover:text-primary-500 transition-colors">About</a>
+          <a href="Product.html" class="nav-link font-medium text-secondary-700 hover:text-primary-500 transition-colors">Products</a>
+          <a href="Contact.html" class="nav-link font-medium text-secondary-700 hover:text-primary-500 transition-colors">Contact</a>
+          <a href="#contact" class="bg-primary-500 text-white hover:bg-primary-600 px-6 py-2 rounded-lg shadow transition-all font-medium">
+            Get Quote
+          </a>
+        </nav>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-secondary-200 py-4 px-4">
+        <div class="flex flex-col space-y-4">
+          <a href="index.html" class="font-medium text-secondary-700 hover:text-primary-500 transition-colors py-2">Home</a>
+          <a href="About.html" class="font-medium text-secondary-700 hover:text-primary-500 transition-colors py-2">About</a>
+          <a href="product.html" class="font-medium text-secondary-700 hover:text-primary-500 transition-colors py-2">Products</a>
+          <a href="#contact" class="font-medium text-secondary-700 hover:text-primary-500 transition-colors py-2">Contact</a>
+          <a href="#contact" class="bg-primary-500 text-white hover:bg-primary-600 px-6 py-2 rounded-lg shadow transition-all font-medium text-center mt-2">
+            Get Quote
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Product Hero Section -->
+    <section class="relative py-20 bg-gradient-to-r from-primary-500 to-primary-600 overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 max-w-7xl relative z-10">
+        <div class="max-w-3xl text-white animate-fade-in">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Our <span class="text-secondary-900">Products</span>
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl">
+            Discover our comprehensive range of high-quality industrial solutions designed to meet your specific needs.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#corrugated" class="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg transition-all inline-flex items-center font-medium">
+              Corrugated Packaging
+            </a>
+            <a href="#flexible" class="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg transition-all inline-flex items-center font-medium">
+              Flexible Packaging
+            </a>
+            <a href="#paper-core" class="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg transition-all inline-flex items-center font-medium">
+              Paper Core
+            </a>
+            <a href="#biomass" class="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg transition-all inline-flex items-center font-medium">
+              Biomass Solutions
+            </a>
+            <a href="#plastics" class="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md px-4 py-2 rounded-lg transition-all inline-flex items-center font-medium">
+              Plastics
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <!-- Corrugated Packaging -->
+        <div id="corrugated" class="mb-24 scroll-mt-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div class="animate-fade-in">
+              <div class="inline-flex items-center bg-primary-100 text-primary-700 rounded-full px-4 py-2 mb-4">
+                <i class="fas fa-box mr-2"></i>
+                <span class="text-sm font-medium">Packaging Solutions</span>
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Corrugated <span class="text-primary-500">Packaging</span>
+              </h2>
+              <p class="text-lg text-secondary-600 mb-6 leading-relaxed">
+                Our high-quality corrugated packaging solutions are designed to provide superior protection for your products during shipping and storage. We offer a wide range of custom options to meet your specific requirements.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Custom Sizes & Designs</h4>
+                    <p class="text-secondary-600">Tailored to your exact specifications</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Eco-Friendly Materials</h4>
+                    <p class="text-secondary-600">Sustainable and recyclable options</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Durability & Strength</h4>
+                    <p class="text-secondary-600">Protection for fragile and heavy items</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <a href="#contact" class="bg-primary-500 text-white hover:bg-primary-600 text-lg px-6 py-3 rounded-lg shadow transition-all inline-flex items-center font-medium">
+                  Request Quote <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.3s">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl product-card">
+                <img 
+                  src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                  alt="Corrugated packaging solutions" 
+                  class="w-full h-96 object-cover product-image"
+                />
+                <div class="absolute inset-0 bg-primary-500/10"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-box-open"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Shipping Boxes</h3>
+              <p class="text-secondary-600">Durable corrugated boxes designed for safe shipping of various products.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-pallet"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Display Packaging</h3>
+              <p class="text-secondary-600">Attractive retail-ready packaging that showcases your products effectively.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Custom Solutions</h3>
+              <p class="text-secondary-600">Bespoke packaging designs tailored to your specific product requirements.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flexible Packaging -->
+        <div id="flexible" class="mb-24 scroll-mt-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div class="animate-fade-in order-2 lg:order-1">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl product-card">
+                <img 
+                  src="assets\flexible.jpg" 
+                  alt="Flexible packaging materials" 
+                  class="w-full h-96 object-cover product-image"
+                />
+                <div class="absolute inset-0 bg-primary-500/10"></div>
+              </div>
+            </div>
+            <div class="animate-fade-in order-1 lg:order-2" style="animation-delay: 0.3s">
+              <div class="inline-flex items-center bg-primary-100 text-primary-700 rounded-full px-4 py-2 mb-4">
+                <i class="fas fa-layer-group mr-2"></i>
+                <span class="text-sm font-medium">Versatile Solutions</span>
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Flexible <span class="text-primary-500">Packaging</span>
+              </h2>
+              <p class="text-lg text-secondary-600 mb-6 leading-relaxed">
+                Our flexible packaging solutions offer versatility and functionality for a wide range of products. From food packaging to industrial applications, we provide materials that protect, preserve, and present your products effectively.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Barrier Protection</h4>
+                    <p class="text-secondary-600">Extended shelf life for perishable goods</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Print Quality</h4>
+                    <p class="text-secondary-600">High-definition printing for brand visibility</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Material Variety</h4>
+                    <p class="text-secondary-600">Multiple material options for different applications</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <a href="#contact" class="bg-primary-500 text-white hover:bg-primary-600 text-lg px-6 py-3 rounded-lg shadow transition-all inline-flex items-center font-medium">
+                  Request Quote <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Food Packaging</h3>
+              <p class="text-secondary-600">Safe and compliant packaging solutions for food products.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-pills"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Pharmaceutical</h3>
+              <p class="text-secondary-600">Medical-grade packaging with proper barrier properties.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-industry"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Industrial Bags</h3>
+              <p class="text-secondary-600">Heavy-duty bags for industrial and agricultural products.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Paper Core -->
+        <div id="paper-core" class="mb-24 scroll-mt-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div class="animate-fade-in">
+              <div class="inline-flex items-center bg-primary-100 text-primary-700 rounded-full px-4 py-2 mb-4">
+                <i class="fas fa-archive mr-2"></i>
+                <span class="text-sm font-medium">Industrial Solutions</span>
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Paper <span class="text-primary-500">Core</span>
+              </h2>
+              <p class="text-lg text-secondary-600 mb-6 leading-relaxed">
+                Our paper core tubes and cylinders are engineered for strength and durability across various industrial applications. From textiles to paper manufacturing, we provide reliable core solutions that meet industry standards.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Multiple Sizes</h4>
+                    <p class="text-secondary-600">Wide range of diameters and lengths available</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Custom Wall Thickness</h4>
+                    <p class="text-secondary-600">Tailored to your specific strength requirements</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Surface Finishes</h4>
+                    <p class="text-secondary-600">Various finishes for different applications</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <a href="#contact" class="bg-primary-500 text-white hover:bg-primary-600 text-lg px-6 py-3 rounded-lg shadow transition-all inline-flex items-center font-medium">
+                  Request Quote <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.3s">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl product-card">
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                  alt="Paper core tubes and cylinders" 
+                  class="w-full h-96 object-cover product-image"
+                />
+                <div class="absolute inset-0 bg-primary-500/10"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-roll"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Textile Cores</h3>
+              <p class="text-secondary-600">Specialized cores for yarn, fabric, and textile applications.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-scroll"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Paper & Film Cores</h3>
+              <p class="text-secondary-600">Cores for paper rolls, plastic films, and foil products.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-tape"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Adhesive Tapes</h3>
+              <p class="text-secondary-600">Cores for various adhesive tape products and applications.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Biomass Solutions -->
+        <div id="biomass" class="mb-24 scroll-mt-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div class="animate-fade-in order-2 lg:order-1">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl product-card">
+                <img 
+                  src="https://images.unsplash.com/photo-1536939459926-301728717817?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                  alt="Sustainable biomass solutions" 
+                  class="w-full h-96 object-cover product-image"
+                />
+                <div class="absolute inset-0 bg-primary-500/10"></div>
+              </div>
+            </div>
+            <div class="animate-fade-in order-1 lg:order-2" style="animation-delay: 0.3s">
+              <div class="inline-flex items-center bg-primary-100 text-primary-700 rounded-full px-4 py-2 mb-4">
+                <i class="fas fa-leaf mr-2"></i>
+                <span class="text-sm font-medium">Sustainable Energy</span>
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Biomass <span class="text-primary-500">Solutions</span>
+              </h2>
+              <p class="text-lg text-secondary-600 mb-6 leading-relaxed">
+                Our biomass solutions provide sustainable alternatives to traditional energy sources. We offer high-quality biomass materials that are efficient, eco-friendly, and cost-effective for various industrial applications.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Renewable Energy</h4>
+                    <p class="text-secondary-600">Sustainable alternative to fossil fuels</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Carbon Neutral</h4>
+                    <p class="text-secondary-600">Reduces carbon footprint and environmental impact</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Cost Effective</h4>
+                    <p class="text-secondary-600">Economical energy solution for industries</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <a href="#contact" class="bg-primary-500 text-white hover:bg-primary-600 text-lg px-6 py-3 rounded-lg shadow transition-all inline-flex items-center font-medium">
+                  Request Quote <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-fire"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Biomass Pellets</h3>
+              <p class="text-secondary-600">High-density biomass pellets for efficient energy production.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-tree"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Agricultural Waste</h3>
+              <p class="text-secondary-600">Processed agricultural residues for biomass applications.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-recycle"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Wood Chips</h3>
+              <p class="text-secondary-600">Quality wood chips for various biomass energy systems.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Plastics -->
+        <div id="plastics" class="scroll-mt-24">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div class="animate-fade-in">
+              <div class="inline-flex items-center bg-primary-100 text-primary-700 rounded-full px-4 py-2 mb-4">
+                <i class="fas fa-industry mr-2"></i>
+                <span class="text-sm font-medium">Material Solutions</span>
+              </div>
+              <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Plastic <span class="text-primary-500">Materials</span>
+              </h2>
+              <p class="text-lg text-secondary-600 mb-6 leading-relaxed">
+                We provide a comprehensive range of plastic materials and manufactured components for various industries. Our plastic solutions offer durability, versatility, and cost-effectiveness for your manufacturing needs.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Material Variety</h4>
+                    <p class="text-secondary-600">Wide selection of plastic types and grades</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Custom Manufacturing</h4>
+                    <p class="text-secondary-600">Tailored components to your specifications</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-primary-500 mt-1 mr-3"></i>
+                  <div>
+                    <h4 class="font-semibold text-secondary-800">Quality Assurance</h4>
+                    <p class="text-secondary-600">Rigorous testing and quality control processes</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <a href="#contact" class="bg-primary-500 text-white hover:bg-primary-600 text-lg px-6 py-3 rounded-lg shadow transition-all inline-flex items-center font-medium">
+                  Request Quote <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.3s">
+              <div class="relative rounded-2xl overflow-hidden shadow-xl product-card">
+                <img 
+                  src="/assets/plastics.jpg" 
+                  alt="Plastic materials and components" 
+                  class="w-full h-96 object-cover product-image"
+                />
+                <div class="absolute inset-0 bg-primary-500/10"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-cube"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Raw Materials</h3>
+              <p class="text-secondary-600">High-quality plastic resins and compounds for manufacturing.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Manufactured Parts</h3>
+              <p class="text-secondary-600">Custom plastic components for various industrial applications.</p>
+            </div>
+            <div class="bg-secondary-50 rounded-2xl p-6 card-hover">
+              <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 mb-4">
+                <i class="fas fa-boxes"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Plastic Packaging</h3>
+              <p class="text-secondary-600">Rigid and flexible plastic packaging solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-500 to-primary-600 text-white">
+      <div class="container mx-auto px-4 max-w-7xl text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Ready to Find Your <span class="text-secondary-900">Solution?</span>
+        </h2>
+        <p class="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+          Contact us today to discuss your requirements and discover how our products can meet your needs.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#contact" class="bg-white text-primary-600 hover:bg-secondary-100 text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center justify-center font-medium">
+            Contact Us <i class="fas fa-phone ml-2"></i>
+          </a>
+          <a href="index.html" class="bg-white/20 text-white hover:bg-white/30 backdrop-blur-md text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center justify-center font-medium border border-white/30">
+            Back to Home <i class="fas fa-home ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-secondary-800 to-secondary-900 text-white">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+            Get In <span class="text-primary-400">Touch</span>
+          </h2>
+          <p class="text-lg text-secondary-300 text-center mb-16 max-w-2xl mx-auto">
+            Ready to discuss your requirements? Our team is here to help you find the perfect solution.
+          </p>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h3 class="text-2xl font-semibold mb-8">Contact Information</h3>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-lg">Phone</p>
+                    <p class="text-secondary-300">+92 300 8403618</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-lg">Email</p>
+                    <p class="text-secondary-300">Zcslhr@gmail.com</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-lg">Address</p>
+                    <p class="text-secondary-300">
+                      Overseas B Extension <br />
+                      Bahria Town<br />
+                      Lahore, 05499
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-10">
+                <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                  <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary-500 flex items-center justify-center transition-colors">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8">
+              <h3 class="text-2xl font-semibold mb-6">Send Us a Message</h3>
+              <form class="space-y-4">
+                <div>
+                  <label for="name" class="block text-sm font-medium mb-2">Your Name</label>
+                  <input type="text" id="name" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="John Doe">
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                  <input type="email" id="email" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="john@example.com">
+                </div>
+                <div>
+                  <label for="product" class="block text-sm font-medium mb-2">Product Interest</label>
+                  <select id="product" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    <option value="" class="text-secondary-900">Select a product</option>
+                    <option value="corrugated" class="text-secondary-900">Corrugated Packaging</option>
+                    <option value="flexible" class="text-secondary-900">Flexible Packaging</option>
+                    <option value="paper-core" class="text-secondary-900">Paper Core</option>
+                    <option value="biomass" class="text-secondary-900">Biomass Solutions</option>
+                    <option value="plastics" class="text-secondary-900">Plastics</option>
+                    <option value="custom" class="text-secondary-900">Custom Solution</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                  <textarea id="message" rows="4" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Tell us about your requirements..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-primary-500 text-white hover:bg-primary-600 py-3 rounded-lg font-medium transition-colors">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-12">
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <a href="index.html" class="text-2xl font-bold text-primary-400 flex items-center">
+                <i class="fas fa-cubes mr-2"></i>
+                Allure Impex
+              </a>
+            </div>
+            <p class="text-secondary-300 mb-6 max-w-md">
+              Connecting manufacturers and buyers with reliable, sustainable sourcing solutions worldwide. Your trusted partner for quality products and exceptional service.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-secondary-300 hover:text-primary-400 transition-colors">Home</a></li>
+              <li><a href="About.html" class="text-secondary-300 hover:text-primary-400 transition-colors">About Us</a></li>
+              <li><a href="product.html" class="text-secondary-300 hover:text-primary-400 transition-colors">Products</a></li>
+              <li><a href="#contact" class="text-secondary-300 hover:text-primary-400 transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Our Products</h3>
+            <ul class="space-y-2">
+              <li><a href="#corrugated" class="text-secondary-300 hover:text-primary-400 transition-colors">Corrugated Packaging</a></li>
+              <li><a href="#flexible" class="text-secondary-300 hover:text-primary-400 transition-colors">Flexible Packaging</a></li>
+              <li><a href="#paper-core" class="text-secondary-300 hover:text-primary-400 transition-colors">Paper Core</a></li>
+              <li><a href="#biomass" class="text-secondary-300 hover:text-primary-400 transition-colors">Biomass Solutions</a></li>
+              <li><a href="#plastics" class="text-secondary-300 hover:text-primary-400 transition-colors">Plastics</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-secondary-800 mt-8 pt-8 text-center text-secondary-400 text-sm">
+          <p>© 2025 Allure Impex. All rights reserved. | Where You Find Solutions</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-colors z-40 hidden">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+  </body>
+</html>
