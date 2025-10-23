@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Allure Impex</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: '#fffdf4',
+                100: '#fff9e1',
+                200: '#fff0b3',
+                300: '#ffe680',
+                400: '#ffd84d',
+                500: '#ffc61a',
+                600: '#e6ac00',
+                700: '#b38600',
+                800: '#806000',
+                900: '#4d3a00',
+              },
+              secondary: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                300: '#cbd5e1',
+                400: '#94a3b8',
+                500: '#64748b',
+                600: '#475569',
+                700: '#334155',
+                800: '#1e293b',
+                900: '#0f172a',
+              }
+            },
+            fontFamily: {
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'slide-up': 'slideUp 0.7s ease-out',
+              'pulse-slow': 'pulse 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(30px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+      .sidebar {
+        scrollbar-width: thin;
+        scrollbar-color: #ffc61a #f1f5f9;
+      }
+      
+      .sidebar::-webkit-scrollbar {
+        width: 4px;
+      }
+      
+      .sidebar::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      
+      .sidebar::-webkit-scrollbar-thumb {
+        background: #ffc61a;
+        border-radius: 2px;
+      }
+      
+      .stat-card {
+        transition: all 0.3s ease;
+      }
+      
+      .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      
+      .nav-item {
+        transition: all 0.2s ease;
+      }
+      
+      .nav-item:hover {
+        background-color: #fffdf4;
+        border-left-color: #ffc61a;
+      }
+      
+      .nav-item.active {
+        background-color: #fff9e1;
+        border-left-color: #ffc61a;
+        color: #806000;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-gray-50 text-secondary-900 font-sans">
+    <!-- Admin Layout -->
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div class="sidebar w-64 bg-white shadow-lg border-r border-secondary-200 flex flex-col">
+        <!-- Logo -->
+        <div class="p-6 border-b border-secondary-200">
+          <div class="flex items-center space-x-3">
+            <div class="text-xl font-bold text-primary-500 flex items-center">
+              <i class="fas fa-cubes mr-2"></i>
+              Allure Impex
+            </div>
+            <span class="text-xs bg-primary-100 text-primary-700 px-2 py-1 rounded-full font-medium">Admin</span>
+          </div>
+        </div>
+        
+        <!-- User Info -->
+        <div class="p-6 border-b border-secondary-200">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-white font-semibold">
+              ZC
+            </div>
+            <div>
+              <p class="font-semibold text-secondary-900">Asad Aijaz</p>
+              <p class="text-sm text-secondary-500">Administrator</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="flex-1 overflow-y-auto py-4">
+          <nav class="space-y-1 px-4">
+            <a href="#" class="nav-item active flex items-center space-x-3 px-4 py-3 rounded-lg border-l-4 border-primary-500 text-primary-700 bg-primary-50">
+              <i class="fas fa-chart-line w-5 text-center"></i>
+              <span class="font-medium">Dashboard</span>
+            </a>
+            
+            <a href="#" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg border-l-4 border-transparent text-secondary-700 hover:text-secondary-900">
+              <i class="fas fa-box w-5 text-center"></i>
+              <span class="font-medium">Products</span>
+            </a>
+            
+            <a href="#" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg border-l-4 border-transparent text-secondary-700 hover:text-secondary-900">
+              <i class="fas fa-shopping-cart w-5 text-center"></i>
+              <span class="font-medium">Orders</span>
+              <span class="ml-auto bg-primary-500 text-white text-xs px-2 py-1 rounded-full">12</span>
+            </a>
+            
+            <a href="#" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg border-l-4 border-transparent text-secondary-700 hover:text-secondary-900">
+              <i class="fas fa-users w-5 text-center"></i>
+              <span class="font-medium">Customers</span>
+            </a>
+            
+            <a href="#" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg border-l-4 border-transparent text-secondary-700 hover:text-secondary-900">
+              <i class="fas fa-envelope w-5 text-center"></i>
+              <span class="font-medium">Messages</span>
+              <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full">5</span>
+            </a>
+            
+            <a href="#" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg border-l-4 border-transparent text-secondary-700 hover:text-secondary-900">
+              <i class="fas fa-chart-bar w-5 text-center"></i>
+              <span class="font-medium">Analytics</span>
+            </a>
+            
+            <a href="#" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-lg border-l-4 border-transparent text-secondary-700 hover:text-secondary-900">
+              <i class="fas fa-cog w-5 text-center"></i>
+              <span class="font-medium">Settings</span>
+            </a>
+          </nav>
+        </div>
+        
+        <!-- Footer -->
+        <div class="p-4 border-t border-secondary-200">
+          <a href="index.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg text-secondary-700 hover:text-primary-500 hover:bg-primary-50 transition-colors">
+            <i class="fas fa-globe w-5 text-center"></i>
+            <span class="font-medium">View Website</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Top Bar -->
+        <header class="bg-white shadow-sm border-b border-secondary-200">
+          <div class="flex items-center justify-between px-6 py-4">
+            <div>
+              <h1 class="text-2xl font-bold text-secondary-900">Dashboard</h1>
+              <p class="text-secondary-500">Welcome back, Asad! Here's what's happening today.</p>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <!-- Notifications -->
+              <button class="relative p-2 text-secondary-500 hover:text-secondary-700 hover:bg-secondary-100 rounded-lg transition-colors">
+                <i class="fas fa-bell"></i>
+                <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+              </button>
+              
+              <!-- Search -->
+              <div class="relative">
+                <input type="text" placeholder="Search..." class="pl-10 pr-4 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-secondary-400"></i>
+              </div>
+              
+              <!-- Date -->
+              <div class="text-sm text-secondary-500">
+                <span id="current-date">October 20, 2025</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto p-6 bg-secondary-50">
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Total Revenue -->
+            <div class="stat-card bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-secondary-500">Total Revenue</p>
+                  <p class="text-2xl font-bold text-secondary-900">2,500,230 Pkr</p>
+                  <p class="text-sm text-green-500 flex items-center">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    <span>12.5% from last month</span>
+                  </p>
+                </div>
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600">
+                  <i class="fas fa-dollar-sign text-xl"></i>
+                </div>
+              </div>
+            </div>
+            
+            <!-- New Orders -->
+            <div class="stat-card bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-secondary-500">New Orders</p>
+                  <p class="text-2xl font-bold text-secondary-900">124</p>
+                  <p class="text-sm text-blue-500 flex items-center">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    <span>8.2% from last month</span>
+                  </p>
+                </div>
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600">
+                  <i class="fas fa-shopping-cart text-xl"></i>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Customers -->
+            <div class="stat-card bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-secondary-500">Customers</p>
+                  <p class="text-2xl font-bold text-secondary-900">230</p>
+                  <p class="text-sm text-purple-500 flex items-center">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    <span>5.3% from last month</span>
+                  </p>
+                </div>
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
+                  <i class="fas fa-users text-xl"></i>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Pending Messages -->
+            <div class="stat-card bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm font-medium text-secondary-500">Pending Messages</p>
+                  <p class="text-2xl font-bold text-secondary-900">23</p>
+                  <p class="text-sm text-orange-500 flex items-center">
+                    <i class="fas fa-clock mr-1"></i>
+                    <span>Need attention</span>
+                  </p>
+                </div>
+                <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600">
+                  <i class="fas fa-envelope text-xl"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts and Tables Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <!-- Revenue Chart -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold text-secondary-900">Revenue Overview</h3>
+                <select class="text-sm border border-secondary-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                  <option>Last 7 days</option>
+                  <option>Last 30 days</option>
+                  <option>Last 90 days</option>
+                </select>
+              </div>
+              <div class="h-64 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl flex items-center justify-center">
+                <div class="text-center text-secondary-500">
+                  <i class="fas fa-chart-line text-4xl mb-4 text-primary-500"></i>
+                  <p>Revenue Chart Visualization</p>
+                  <p class="text-sm">Interactive chart would appear here</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Recent Orders -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold text-secondary-900">Recent Orders</h3>
+                <a href="#" class="text-sm text-primary-500 hover:text-primary-600 font-medium">View All</a>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-secondary-50 rounded-lg">
+                  <div>
+                    <p class="font-medium text-secondary-900">#ORD-2847</p>
+                    <p class="text-sm text-secondary-500">Corrugated Boxes</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-medium text-secondary-900">11,240 Pkr</p>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                      Completed
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 bg-secondary-50 rounded-lg">
+                  <div>
+                    <p class="font-medium text-secondary-900">#ORD-2846</p>
+                    <p class="text-sm text-secondary-500">Flexible Packaging</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-medium text-secondary-900">23000 Pkr</p>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                      Processing
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 bg-secondary-50 rounded-lg">
+                  <div>
+                    <p class="font-medium text-secondary-900">#ORD-2845</p>
+                    <p class="text-sm text-secondary-500">Paper Core Tubes</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-medium text-secondary-900">21,520 Pkr</p>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                      Pending
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 bg-secondary-50 rounded-lg">
+                  <div>
+                    <p class="font-medium text-secondary-900">#ORD-2844</p>
+                    <p class="text-sm text-secondary-500">Biomass Pellets</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-medium text-secondary-900">33,420 Pkr</p>
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                      Completed
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Recent Activity -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <h3 class="text-lg font-semibold text-secondary-900 mb-6">Quick Actions</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-primary-50 rounded-xl border border-primary-200 text-primary-700 hover:bg-primary-100 transition-colors">
+                  <i class="fas fa-plus-circle text-2xl mb-2"></i>
+                  <span class="font-medium text-sm">Add Product</span>
+                </a>
+                
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-xl border border-blue-200 text-blue-700 hover:bg-blue-100 transition-colors">
+                  <i class="fas fa-file-invoice text-2xl mb-2"></i>
+                  <span class="font-medium text-sm">Create Invoice</span>
+                </a>
+                
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-xl border border-green-200 text-green-700 hover:bg-green-100 transition-colors">
+                  <i class="fas fa-chart-bar text-2xl mb-2"></i>
+                  <span class="font-medium text-sm">View Reports</span>
+                </a>
+                
+                <a href="#" class="flex flex-col items-center justify-center p-4 bg-purple-50 rounded-xl border border-purple-200 text-purple-700 hover:bg-purple-100 transition-colors">
+                  <i class="fas fa-cog text-2xl mb-2"></i>
+                  <span class="font-medium text-sm">Settings</span>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-secondary-100">
+              <h3 class="text-lg font-semibold text-secondary-900 mb-6">Recent Activity</h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 flex-shrink-0">
+                    <i class="fas fa-check text-xs"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium text-secondary-900">New order received</p>
+                    <p class="text-xs text-secondary-500">Order #ORD-2847 for 12,440 Pkr</p>
+                    <p class="text-xs text-secondary-400">2 hours ago</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                  <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 flex-shrink-0">
+                    <i class="fas fa-user text-xs"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium text-secondary-900">New customer registered</p>
+                    <p class="text-xs text-secondary-500">Global Packaging Solutions</p>
+                    <p class="text-xs text-secondary-400">5 hours ago</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                  <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 flex-shrink-0">
+                    <i class="fas fa-envelope text-xs"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium text-secondary-900">New message received</p>
+                    <p class="text-xs text-secondary-500">From Tech Industries Ltd.</p>
+                    <p class="text-xs text-secondary-400">1 day ago</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                  <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 flex-shrink-0">
+                    <i class="fas fa-box text-xs"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium text-secondary-900">Product inventory updated</p>
+                    <p class="text-xs text-secondary-500">Corrugated packaging stock</p>
+                    <p class="text-xs text-secondary-400">2 days ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
